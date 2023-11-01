@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ducky Pass - Password Generator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" type="text/css" href="duckylooks.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+</head>
+<body>
+    <div class="header-container">
+            <div class="logo">
+                <a href="https://www.duckypass.net">
+                    <img src="duckypass_logo.png" alt="Ducky Pass Logo" class="logo-img">
+                </a>
+            </div>
+            <div class="title-container">
+                <h1>
+                    <a href="https://www.duckypass.net">Ducky Pass</a>
+                </h1>
+                <p class="subtitle">Quacktastic Passwords, Just for You!</p>
+            </div>
+        </div>
+    
+    <div class="gen-container">
+
+        <main>
+            <section class="description">
+                <h2>Why Use Secure Passwords?</h2>
+                <p>Using secure passwords is crucial for protecting your online accounts and personal information. Weak passwords can be easily cracked by hackers, leaving your data vulnerable to theft and misuse. Secure passwords are your first line of defense against unauthorized access.</p>
+                <p>Ducky Pass helps you create strong and unique passwords by combining randomly selected words from the list with unique random numbers and symbols. You can customize the word list to suit your preferences.</p>
+            </section>
+
+            <section class="password-generator">
+                <form id="password-generator-form">
+                    <label for="word-list">Word List:</label>
+                    <div class="textarea-container">
+                        <textarea id="word-list" rows="5"></textarea>
+                    </div>
+                    <label for="quantity">Number of Passwords:</label>
+                    <input type="number" id="quantity" value="1" min="1">
+                    <button type="button" id="generate-secure-passwords">Generate Secure Passwords</button>
+                    <button type="button" id="generate-simple-passwords">Generate Simple Passwords</button>
+                </form>
+
+                <div class="password-box">
+                    <div id="generated-passwords">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="toast" id="toast">Passwords copied to clipboard</div>
+    </div>
+    <footer>
+        <p>2023 Rhys Wills | This website is licensed under the GNU General Public License Version 3 | <a href="https://www.duckypass.net">Ducky Pass</a></p>
+    </footer>
+    <script src="duckygen.js"></script>
+</body>
+</html>
