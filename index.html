@@ -2,10 +2,17 @@
 <html>
 <head>
     <title>Ducky Pass - Password Generator</title>
+    <meta name="description" content="Ducky Pass is a simple and secure password generator.">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="stylesheet" type="text/css" href="duckylooks.css">
     <link rel="icon" type="image/x-icon" href="favicon.png">
-
+    <link rel="manifest" href="/manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/serviceWorker.js');
+        }
+      </script>
+      
 </head>
 <body>
     <div class="header-container">
