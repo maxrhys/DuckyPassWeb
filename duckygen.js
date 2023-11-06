@@ -13,7 +13,7 @@ fetch("wordlist.txt")
     .then(response => response.text())
     .then(data => {
         wordListTextArea.value = data;
-        generateSecurePasswords()
+        generateSimplePasswords()
     })
     .catch(error => console.error("Error loading word list:", error));
 
