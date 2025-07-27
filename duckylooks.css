@@ -159,3 +159,55 @@
 .show-toast {
     display: block;
 }
+
+/* API Documentation Styles */
+.api-section {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5em;
+    box-shadow: 0 0 8px rgba(0,0,0,0.04);
+}
+
+.api-endpoint {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--light-gray-color);
+}
+
+.api-method {
+    font-family: monospace;
+    background: var(--primary-color);
+    color: var(--text-color);
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 0.5em;
+    font-size: 1em;
+}
+
+.api-pre {
+    background: #eee;
+    color: #222;
+    padding: 0.7em 1em;
+    border-radius: 5px;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 1em;
+    margin: 0.5em 0;
+    overflow-x: auto;
+}
+
+.api-example {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.api-note {
+    background: #fffbe6;
+    border-left: 4px solid #ffe066;
+    padding: 1em;
+    margin: 2em 0 0 0;
+    border-radius: 5px;
+    font-size: 1.1em;
+}

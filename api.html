@@ -1,129 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>DuckyPass API Documentation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 700px; margin: 2em auto; background: #f9f9f9; color: #222; }
-    h1, h2, h3 { color: #1a7e4b; }
-    code, pre { background: #eee; padding: 2px 4px; border-radius: 3px; }
-    pre { padding: 1em; }
-    .endpoint { font-weight: bold; color: #333; }
-    .section { margin-bottom: 2em; }
-    .note { background: #fffbe6; border-left: 4px solid #ffe066; padding: 1em; margin: 1em 0; }
-  </style>
+    <title>Ducky Pass API Documentation</title>
+    <meta name="description" content="Ducky Pass API documentation for generating secure and simple passwords.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" type="text/css" href="duckylooks.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
 </head>
 <body>
-  <h1>DuckyPass API Documentation</h1>
-  <p>
-    Welcome to the DuckyPass API!<br>
-    This API helps you generate strong and unique passwords by combining randomly selected words, numbers, and symbols.
-  </p>
+    <div class="header-container">
+        <div class="logo">
+            <a href="https://www.duckypass.net">
+                <img src="duckypass_logo.png" alt="Ducky Pass Logo" class="logo-img">
+            </a>
+        </div>
+        <div class="title-container">
+            <h1>
+                <a href="https://www.duckypass.net">Ducky Pass</a>
+            </h1>
+            <p class="subtitle">Quacktastic Passwords, Just for You!</p>
+        </div>
+    </div>
 
-  <div class="section">
-    <h2>Base URL</h2>
-    <pre>https://api.duckypass.net</pre>
-  </div>
+    <div class="gen-container">
+        <main>
+            <section class="description">
+                <h2>Ducky Pass API Documentation</h2>
+                <p>
+                    Welcome to the Ducky Pass API!<br>
+                    This API helps you generate strong and unique passwords by combining randomly selected words, numbers, and symbols.
+                </p>
+            </section>
 
-  <div class="section">
-    <h2>Endpoints</h2>
-    <h3>1. Generate Simple Password(s)</h3>
-    <div class="endpoint">GET /simple<br>POST /simple</div>
-    <p>
-      <strong>Query Parameters:</strong><br>
-      <code>quantity</code> (optional, integer): Number of passwords to generate (default: 1, max: 100000)
-    </p>
-    <p>
-      <strong>Response:</strong><br>
-      If <code>quantity</code> is 1 (or not provided): Returns a single password as plain text.<br>
-      If <code>quantity</code> &gt; 1: Returns a JSON object with an array of passwords.
-    </p>
-    <p><strong>Examples:</strong></p>
-    <ul>
-      <li>
-        <strong>Single password (plain text):</strong>
-        <pre>GET https://api.duckypass.net/simple</pre>
-        <pre>AppleDuck42</pre>
-      </li>
-      <li>
-        <strong>Multiple passwords (JSON):</strong>
-        <pre>GET https://api.duckypass.net/simple?quantity=3</pre>
-        <pre>{
+            <section class="api-section">
+                <h3>Base URL</h3>
+                <pre class="api-pre">https://api.duckypass.net</pre>
+            </section>
+
+            <section class="api-section">
+                <h3>Endpoints</h3>
+                <div class="api-endpoint">
+                    <h4>1. Generate Simple Password(s)</h4>
+                    <div class="api-method">GET /simple &nbsp;|&nbsp; POST /simple</div>
+                    <ul>
+                        <li><strong>Query Parameters:</strong> <code>quantity</code> (optional, integer): Number of passwords to generate (default: 1, max: 100000)</li>
+                        <li><strong>Response:</strong>
+                            <ul>
+                                <li>If <code>quantity</code> is 1 (or not provided): Returns a single password as plain text.</li>
+                                <li>If <code>quantity</code> &gt; 1: Returns a JSON object with an array of passwords.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="api-example">
+                        <strong>Single password (plain text):</strong>
+                        <pre class="api-pre">GET https://api.duckypass.net/simple</pre>
+                        <pre class="api-pre">AppleDuck42</pre>
+                        <strong>Multiple passwords (JSON):</strong>
+                        <pre class="api-pre">GET https://api.duckypass.net/simple?quantity=3</pre>
+                        <pre class="api-pre">{
   "passwords": [
     "AppleDuck42",
     "ChairMoon17",
     "BookFox89"
   ]
 }</pre>
-      </li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h3>2. Generate Secure Password(s)</h3>
-    <div class="endpoint">GET /secure<br>POST /secure</div>
-    <p>
-      <strong>Query Parameters:</strong><br>
-      <code>quantity</code> (optional, integer): Number of passwords to generate (default: 1, max: 100000)
-    </p>
-    <p>
-      <strong>Response:</strong><br>
-      If <code>quantity</code> is 1 (or not provided): Returns a single password as plain text.<br>
-      If <code>quantity</code> &gt; 1: Returns a JSON object with an array of passwords.
-    </p>
-    <p><strong>Examples:</strong></p>
-    <ul>
-      <li>
-        <strong>Single secure password (plain text):</strong>
-        <pre>GET https://api.duckypass.net/secure</pre>
-        <pre>Chair7Moon#Fox</pre>
-      </li>
-      <li>
-        <strong>Multiple secure passwords (JSON):</strong>
-        <pre>GET https://api.duckypass.net/secure?quantity=2</pre>
-        <pre>{
+                    </div>
+                </div>
+                <div class="api-endpoint">
+                    <h4>2. Generate Secure Password(s)</h4>
+                    <div class="api-method">GET /secure &nbsp;|&nbsp; POST /secure</div>
+                    <ul>
+                        <li><strong>Query Parameters:</strong> <code>quantity</code> (optional, integer): Number of passwords to generate (default: 1, max: 100000)</li>
+                        <li><strong>Response:</strong>
+                            <ul>
+                                <li>If <code>quantity</code> is 1 (or not provided): Returns a single password as plain text.</li>
+                                <li>If <code>quantity</code> &gt; 1: Returns a JSON object with an array of passwords.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="api-example">
+                        <strong>Single secure password (plain text):</strong>
+                        <pre class="api-pre">GET https://api.duckypass.net/secure</pre>
+                        <pre class="api-pre">Chair7Moon#Fox</pre>
+                        <strong>Multiple secure passwords (JSON):</strong>
+                        <pre class="api-pre">GET https://api.duckypass.net/secure?quantity=2</pre>
+                        <pre class="api-pre">{
   "passwords": [
     "Chair7Moon#Fox",
     "Book2Duck@Cat"
   ]
 }</pre>
-      </li>
-    </ul>
-  </div>
+                    </div>
+                </div>
+            </section>
 
-  <div class="section">
-    <h2>Error Handling</h2>
-    <ul>
-      <li>
-        If you request an undefined endpoint, you will receive:<br>
-        <pre>404 Not Found. See API documentation at https://duckypass.net/api</pre>
-      </li>
-      <li>
-        If <code>quantity</code> exceeds 100,000, it will be capped at 100,000.
-      </li>
-    </ul>
-  </div>
+            <section class="api-section">
+                <h3>Error Handling</h3>
+                <ul>
+                    <li>If you request an undefined endpoint, you will receive:<br>
+                        <pre class="api-pre">404 Not Found. See API documentation at https://duckypass.net/api</pre>
+                    </li>
+                    <li>If <code>quantity</code> exceeds 100,000, it will be capped at 100,000.</li>
+                </ul>
+            </section>
 
-  <div class="section">
-    <h2>Notes</h2>
-    <ul>
-      <li>Both GET and POST methods are supported.</li>
-      <li>All responses are either plain text (for a single password) or JSON (for multiple).</li>
-      <li>For best results, use HTTPS.</li>
-    </ul>
-  </div>
+            <section class="api-section">
+                <h3>Notes</h3>
+                <ul>
+                    <li>Both GET and POST methods are supported.</li>
+                    <li>All responses are either plain text (for a single password) or JSON (for multiple).</li>
+                    <li>For best results, use HTTPS.</li>
+                </ul>
+            </section>
 
-  <div class="section">
-    <h2>Example Usage</h2>
-    <strong>cURL:</strong>
-    <pre>curl "https://api.duckypass.net/simple?quantity=5"
+            <section class="api-section">
+                <h3>Example Usage</h3>
+                <strong>cURL:</strong>
+                <pre class="api-pre">curl "https://api.duckypass.net/simple?quantity=5"
 curl "https://api.duckypass.net/secure"</pre>
-    <strong>JavaScript (fetch):</strong>
-    <pre>fetch('https://api.duckypass.net/simple?quantity=2')
+                <strong>JavaScript (fetch):</strong>
+                <pre class="api-pre">fetch('https://api.duckypass.net/simple?quantity=2')
   .then(res => res.json())
   .then(data => console.log(data));</pre>
-  </div>
+            </section>
 
-  <div class="note">
-    For more information, visit <a href="https://duckypass.net" target
+            <div class="api-note">
+                For more information, visit <a href="https://duckypass.net" target="_blank">duckypass.net</a>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>2023 Rhys Wills | This website is licensed under the GNU General Public License Version 3 | <a href="https://www.duckypass.net">Ducky Pass</a></p>
+    </footer>
+</body>
+</html>
