@@ -277,7 +277,7 @@
 }
 
 .api-announcement h3 {
-    color: var(--duck-color);
+    color: var(--text-color);
     margin-bottom: 0.5em;
     font-size: 1.5em;
 }
