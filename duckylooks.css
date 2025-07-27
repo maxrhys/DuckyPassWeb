@@ -25,9 +25,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    /* This padding-bottom is likely no longer needed if flexbox sticky footer is working correctly,
-       but leaving it if you choose to revert to position: fixed footer */
-    /* padding-bottom: 60px; */ 
+    padding-bottom: 60px; 
   }
   
   /* Header styles */
@@ -269,23 +267,38 @@
     font-size: 1.5em;
 }
 
+.api-announcement {
+    margin-top: 2em; /* Spacing from the section above */
+    padding: 20px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+.api-announcement h3 {
+    color: var(--duck-color);
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
+}
+
 .api-announcement p {
     margin-bottom: 1em;
     color: var(--text-color);
+    line-height: 1.4; /* Explicitly set line height for readability, consistent with main text */
 }
 
 .api-button {
-    display: inline-block; /* Allows padding and margins, but keeps it in line */
+    display: inline-block;
     background-color: var(--duck-color);
     color: var(--text-color);
     border: none;
-    padding: 12px 25px; /* Slightly larger padding for prominence */
+    padding: 10px 20px; /* Matches standard button padding */
     border-radius: 5px;
     cursor: pointer;
-    text-decoration: none; /* Remove underline from the link */
+    text-decoration: none;
     transition: background-color 0.3s ease;
-    font-weight: bold;
-    font-size: 1.1em;
+    /* Removed font-weight and font-size to match standard button text appearance */
 }
 
 .api-button:hover {
