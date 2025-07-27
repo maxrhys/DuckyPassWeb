@@ -25,6 +25,9 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    /* This padding-bottom is likely no longer needed if flexbox sticky footer is working correctly,
+       but leaving it if you choose to revert to position: fixed footer */
+    /* padding-bottom: 60px; */ 
   }
   
   /* Header styles */
@@ -112,7 +115,7 @@
   }
   
   button:hover {
-    background-color: --tertiary-color;
+    background-color: var(--tertiary-color); /* Corrected typo here */
   }
   
   .password-box {
@@ -131,9 +134,7 @@
     padding: 20px;
     background-color: var(--primary-color);
     color: var(--text-color);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    /* Removed position: fixed, bottom, width for flexbox sticky footer */
   }
   
   /* Footer hyperlink text color */
@@ -250,4 +251,43 @@
     margin-top: 0.7em;
     margin-bottom: 0.2em;
     color: var(--duck-color);
+}
+
+/* API Announcement Section Styles */
+.api-announcement {
+    margin-top: 2em; /* Spacing from the section above */
+    padding: 20px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+.api-announcement h3 {
+    color: var(--duck-color);
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
+}
+
+.api-announcement p {
+    margin-bottom: 1em;
+    color: var(--text-color);
+}
+
+.api-button {
+    display: inline-block; /* Allows padding and margins, but keeps it in line */
+    background-color: var(--duck-color);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 25px; /* Slightly larger padding for prominence */
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from the link */
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.api-button:hover {
+    background-color: var(--tertiary-color);
 }
