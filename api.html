@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DuckyPass API Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 2em auto; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #1a7e4b; }
+    code, pre { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    pre { padding: 1em; }
+    .endpoint { font-weight: bold; color: #333; }
+    .section { margin-bottom: 2em; }
+    .note { background: #fffbe6; border-left: 4px solid #ffe066; padding: 1em; margin: 1em 0; }
+  </style>
+</head>
+<body>
+  <h1>DuckyPass API Documentation</h1>
+  <p>
+    Welcome to the DuckyPass API!<br>
+    This API helps you generate strong and unique passwords by combining randomly selected words, numbers, and symbols.
+  </p>
+
+  <div class="section">
+    <h2>Base URL</h2>
+    <pre>https://api.duckypass.net</pre>
+  </div>
+
+  <div class="section">
+    <h2>Endpoints</h2>
+    <h3>1. Generate Simple Password(s)</h3>
+    <div class="endpoint">GET /simple<br>POST /simple</div>
+    <p>
+      <strong>Query Parameters:</strong><br>
+      <code>quantity</code> (optional, integer): Number of passwords to generate (default: 1, max: 100000)
+    </p>
+    <p>
+      <strong>Response:</strong><br>
+      If <code>quantity</code> is 1 (or not provided): Returns a single password as plain text.<br>
+      If <code>quantity</code> &gt; 1: Returns a JSON object with an array of passwords.
+    </p>
+    <p><strong>Examples:</strong></p>
+    <ul>
+      <li>
+        <strong>Single password (plain text):</strong>
+        <pre>GET https://api.duckypass.net/simple</pre>
+        <pre>AppleDuck42</pre>
+      </li>
+      <li>
+        <strong>Multiple passwords (JSON):</strong>
+        <pre>GET https://api.duckypass.net/simple?quantity=3</pre>
+        <pre>{
+  "passwords": [
+    "AppleDuck42",
+    "ChairMoon17",
+    "BookFox89"
+  ]
+}</pre>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>2. Generate Secure Password(s)</h3>
+    <div class="endpoint">GET /secure<br>POST /secure</div>
+    <p>
+      <strong>Query Parameters:</strong><br>
+      <code>quantity</code> (optional, integer): Number of passwords to generate (default: 1, max: 100000)
+    </p>
+    <p>
+      <strong>Response:</strong><br>
+      If <code>quantity</code> is 1 (or not provided): Returns a single password as plain text.<br>
+      If <code>quantity</code> &gt; 1: Returns a JSON object with an array of passwords.
+    </p>
+    <p><strong>Examples:</strong></p>
+    <ul>
+      <li>
+        <strong>Single secure password (plain text):</strong>
+        <pre>GET https://api.duckypass.net/secure</pre>
+        <pre>Chair7Moon#Fox</pre>
+      </li>
+      <li>
+        <strong>Multiple secure passwords (JSON):</strong>
+        <pre>GET https://api.duckypass.net/secure?quantity=2</pre>
+        <pre>{
+  "passwords": [
+    "Chair7Moon#Fox",
+    "Book2Duck@Cat"
+  ]
+}</pre>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Error Handling</h2>
+    <ul>
+      <li>
+        If you request an undefined endpoint, you will receive:<br>
+        <pre>404 Not Found. See API documentation at https://duckypass.net/api</pre>
+      </li>
+      <li>
+        If <code>quantity</code> exceeds 100,000, it will be capped at 100,000.
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Notes</h2>
+    <ul>
+      <li>Both GET and POST methods are supported.</li>
+      <li>All responses are either plain text (for a single password) or JSON (for multiple).</li>
+      <li>For best results, use HTTPS.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Example Usage</h2>
+    <strong>cURL:</strong>
+    <pre>curl "https://api.duckypass.net/simple?quantity=5"
+curl "https://api.duckypass.net/secure"</pre>
+    <strong>JavaScript (fetch):</strong>
+    <pre>fetch('https://api.duckypass.net/simple?quantity=2')
+  .then(res => res.json())
+  .then(data => console.log(data));</pre>
+  </div>
+
+  <div class="note">
+    For more information, visit <a href="https://duckypass.net" target
